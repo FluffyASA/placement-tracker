@@ -50,6 +50,11 @@
   .pill {
     @apply inline-block text-xs px-2.5 py-1 rounded-full font-medium;
   }
+
+  @media (max-width: 767px) {
+    .card { @apply p-4; }
+    .btn-primary, .btn-secondary { @apply px-3 py-2; }
+  }
   .topic-icon {
     @apply inline-flex items-center justify-center rounded-full w-10 h-10 text-lg mr-3;
     background: rgba(255,255,255,0.02);

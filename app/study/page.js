@@ -70,12 +70,12 @@ export default function StudyPage() {
                     toggleExpanded(mod.id);
                   }
                 }}
-                className="w-full flex items-center justify-between text-left"
+                className="flex w-full items-center justify-between gap-3 text-left"
               >
                 <div>
-                  <div className="flex items-center gap-3">
+                  <div className="flex min-w-0 items-center gap-3">
                     <svg className="h-5 w-5 text-ink/60" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 5v14M5 12h14" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
-                    <h2 className="font-medium">{mod.title}</h2>
+                    <h2 className="font-medium break-words">{mod.title}</h2>
                   </div>
                   <p className="text-xs text-ink/50">{completedCount} / {total} completed</p>
                 </div>
@@ -87,8 +87,8 @@ export default function StudyPage() {
                   {mod.sections.map((s) => {
                     const state = modProgress[s.id] || {};
                     return (
-                      <div key={s.id} className="flex items-center justify-between gap-3 border-b border-line py-3">
-                        <div className="flex items-center gap-3">
+                      <div key={s.id} className="flex flex-col gap-2 border-b border-line py-3 sm:flex-row sm:items-center sm:justify-between sm:gap-3">
+                        <div className="flex min-w-0 items-center gap-3">
                           <input
                             id={`${mod.id}-${s.id}`}
                             type="checkbox"
@@ -96,7 +96,7 @@ export default function StudyPage() {
                             onChange={() => toggleComplete(mod.id, s.id)}
                             className="h-4 w-4"
                           />
-                          <Link href={`/study/view?module=${encodeURIComponent(mod.id)}&topic=${encodeURIComponent(s.id)}`} className="hover:underline">
+                          <Link href={`/study/view?module=${encodeURIComponent(mod.id)}&topic=${encodeURIComponent(s.id)}`} className="break-words hover:underline">
                             <span className="font-medium">{s.title}</span>
                           </Link>
                         </div>

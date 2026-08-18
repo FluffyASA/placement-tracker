@@ -28,7 +28,7 @@ function StudyViewContent() {
 
   return (
     <div className="space-y-6">
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <div>
           <h1 className="font-display text-xl">{section.title}</h1>
           <p className="text-sm text-ink/60">{module.title}</p>

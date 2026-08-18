@@ -32,7 +32,7 @@ export default function SavedQuestionsPage() {
 
   return (
     <div className="space-y-6">
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <div>
           <h1 className="font-display text-xl">Saved Questions</h1>
           <p className="text-sm text-ink/60">Review or revise saved question-answer pairs.</p>
@@ -57,13 +57,13 @@ export default function SavedQuestionsPage() {
           <div key={it.id} className="card p-3">
             <div className="flex items-start justify-between">
               <div className="w-full">
-                <div className="flex items-center justify-between gap-3">
+                <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between sm:gap-3">
                   <strong>{it.topic}</strong>
                   <span className="text-xs text-ink/50">{new Date(it.date).toLocaleString()}</span>
                 </div>
                 <p className="mt-2 font-medium">{it.question}</p>
                 <p className="mt-2 text-sm text-ink/60">Correct: {it.correctAnswer}</p>
-                <div className="mt-2 flex gap-2 items-center">
+                <div className="mt-2 flex flex-col gap-2 sm:flex-row sm:items-center">
                   <label className="text-sm text-ink/60">Your saved answer:</label>
                   <input className="field" value={it.savedAnswer || ""} onChange={(e) => updateAnswer(it.id, e.target.value)} />
                 </div>

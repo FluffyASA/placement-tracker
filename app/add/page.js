@@ -83,7 +83,7 @@ export default function AddCompany() {
         {error && <p className="text-sm text-danger">{error}</p>}
       </form>
 
-      <div className="flex items-center gap-3">
+      <div className="flex flex-wrap items-center gap-3">
         <button className="btn-secondary" onClick={() => setShowManual((s) => !s)}>
           {showManual ? "Hide manual form" : "Enter details manually"}
         </button>
@@ -113,7 +113,7 @@ export default function AddCompany() {
             </div>
           </div>
 
-          <div className="flex items-center gap-2 justify-end">
+          <div className="flex flex-wrap items-center gap-2 sm:justify-end">
             <button type="button" className="btn-secondary" onClick={() => setShowManual(false)}>Cancel</button>
             <button type="submit" className="btn-primary" disabled={manualLoading}>{manualLoading ? 'Adding…' : 'Add company'}</button>
           </div>

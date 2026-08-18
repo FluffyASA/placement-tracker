@@ -138,12 +138,12 @@ export default function TestPage() {
       </div>
 
       <div className="card space-y-4">
-        <div className="flex items-center justify-between">
+        <div className="flex flex-wrap items-center justify-between gap-3">
           <label className="block text-sm font-medium text-ink/70">Topic</label>
           <Link href="/test/saved" className="btn-secondary">Saved questions</Link>
         </div>
         <select
-          className="field w-auto min-w-[180px]"
+          className="field w-full min-w-0 sm:w-auto sm:min-w-[180px]"
           value={selectedTopic}
           onChange={(e) => setSelectedTopic(e.target.value)}
         >
@@ -170,7 +170,7 @@ export default function TestPage() {
       {!submitted ? (
         questionSet.length > 0 ? (
           <div className="card space-y-5">
-            <div className="flex items-center justify-between text-sm text-ink/60">
+            <div className="flex flex-wrap items-center justify-between gap-2 text-sm text-ink/60">
               <span>
                 Question {currentIndex + 1} / {totalQuestions}
               </span>
@@ -223,7 +223,7 @@ export default function TestPage() {
         <div className="card space-y-5">
           <div>
             <p className="text-xs uppercase tracking-wide text-ink/50">Results</p>
-            <div className="flex items-center gap-3">
+            <div className="flex flex-wrap items-center gap-3">
               <h2 className="font-display text-2xl mt-2">
                 {score} / {totalQuestions}
               </h2>

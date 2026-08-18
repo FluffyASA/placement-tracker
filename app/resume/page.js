@@ -150,7 +150,7 @@ export default function ResumePage() {
       <div>
         <h1 className="font-display text-xl mb-2">Resumes</h1>
         <select
-          className="field w-auto"
+          className="field w-full sm:w-auto"
           value={companyId}
           onChange={(e) => setCompanyId(e.target.value)}
         >
@@ -181,8 +181,8 @@ export default function ResumePage() {
             <div className="card space-y-2">
               <p className="font-display text-base mb-2">Stored versions</p>
               {resumes.map((r) => (
-                <div key={r.id} className="flex items-center justify-between text-sm border-b border-line last:border-0 py-2">
-                  <span>{r.file_name}</span>
+                <div key={r.id} className="flex flex-col gap-2 text-sm border-b border-line last:border-0 py-2 sm:flex-row sm:items-center sm:justify-between">
+                  <span className="break-all">{r.file_name}</span>
                   <div className="flex items-center gap-3">
                     <button onClick={() => handleDownload(r)} className="text-signalDark hover:underline">
                       Download

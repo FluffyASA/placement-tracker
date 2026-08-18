@@ -90,15 +90,15 @@ export default function CompaniesPage() {
 
   return (
     <div className="space-y-6">
-      <div className="flex items-center justify-between">
+      <div className="flex flex-wrap items-center justify-between gap-3">
         <h1 className="font-display text-2xl">Companies</h1>
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2">
           <Link href="/add" className="btn-primary">Add Company</Link>
           <button className="btn-secondary" onClick={() => load()}>Refresh</button>
         </div>
       </div>
 
-      <div className="flex items-center gap-3">
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
         <input
           placeholder="Search companies or roles…"
           value={searchTerm}
@@ -125,8 +125,8 @@ export default function CompaniesPage() {
             <div key={c.id} className="card">
               {!isEditing ? (
                 <div>
-                  <div className="flex items-start justify-between">
-                    <div>
+                  <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+                    <div className="min-w-0">
                       <p className="font-display text-base">{c.name}</p>
                       {c.role && <p className="text-sm text-ink/60">{c.role}</p>}
                       <div className="mt-2 text-sm text-ink/70">
@@ -138,7 +138,7 @@ export default function CompaniesPage() {
                         )}
                       </div>
                     </div>
-                    <div className="flex items-center gap-2">
+                    <div className="flex flex-wrap items-center gap-2">
                       <select
                         value={c.status}
                         onChange={(e) => updateStatus(c.id, e.target.value)}
@@ -181,7 +181,7 @@ export default function CompaniesPage() {
                     </div>
                   </div>
 
-                  <div className="mt-3 flex gap-2 justify-end">
+                  <div className="mt-3 flex flex-wrap gap-2 sm:justify-end">
                     <button className="btn-secondary" onClick={cancelEdit}>Cancel</button>
                     <button className="btn-primary" onClick={() => saveEdit(c.id)}>Save</button>
                   </div>

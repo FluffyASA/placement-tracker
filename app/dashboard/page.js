@@ -108,7 +108,7 @@ export default function DashboardPage() {
 
   return (
     <div className="space-y-6">
-      <div className="flex items-center justify-between">
+      <div className="flex flex-wrap items-center justify-between gap-3">
         <h1 className="font-display text-2xl">Dashboard</h1>
         <div className="flex items-center gap-3">
           <button className="btn-primary" onClick={() => refresh()}>Refresh</button>
@@ -134,13 +134,13 @@ export default function DashboardPage() {
               const slug = t.toLowerCase().replace(/\s+/g, "-");
               return (
                 <div key={t} className="card">
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center">
+                  <div className="flex items-center justify-between gap-3">
+                    <div className="flex min-w-0 items-center">
                       <div className="topic-icon" aria-hidden>
                         <span>{icons[t] || "📘"}</span>
                       </div>
                       <div>
-                        <p className="font-medium">{t}</p>
+                        <p className="font-medium break-words">{t}</p>
                         <p className="text-xs text-ink/60 mt-1">View Flashcards</p>
                       </div>
                     </div>
@@ -156,8 +156,8 @@ export default function DashboardPage() {
           <h2 className="font-medium text-lg mb-3">Study Materials</h2>
           <div className="grid gap-4 md:grid-cols-3">
             <div className="card">
-              <div className="flex items-center justify-between">
-                <div className="flex items-center">
+              <div className="flex items-center justify-between gap-3">
+                <div className="flex min-w-0 items-center">
                   <div className="topic-icon">📖</div>
                   <div>
                     <p className="font-medium">Study Materials</p>
@@ -203,7 +203,7 @@ export default function DashboardPage() {
                           )}
                         </div>
 
-                        <div className="flex items-center gap-2">
+                        <div className="flex flex-wrap items-center gap-2">
                           <select
                             value={c.status}
                             onChange={(e) => updateStatus(c.id, e.target.value)}
@@ -229,7 +229,7 @@ export default function DashboardPage() {
                         <input type="date" className="field" value={editForm.test_date} onChange={(e) => setEditForm((s) => ({ ...s, test_date: e.target.value }))} />
                       </div>
 
-                      <div className="mt-3 flex gap-2 justify-end">
+                      <div className="mt-3 flex flex-wrap gap-2 sm:justify-end">
                         <button className="btn-secondary" onClick={cancelEdit}>Cancel</button>
                         <button className="btn-primary" onClick={() => saveEdit(c.id)}>Save</button>
                       </div>
